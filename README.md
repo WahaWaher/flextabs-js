@@ -59,7 +59,7 @@ $('.example-tabs').flexTabs({
 ```
 
 ## Демо:
-https://wahawaher.github.io/flextabs-js
+https://wahawaher.github.io/flextabs-js/
 
 ## Параметры:
 
