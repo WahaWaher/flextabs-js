@@ -1,0 +1,74 @@
+.theme-default {
+	margin: 25px 0;
+}
+
+.theme-default .ft-nav {
+	border-bottom: 1px solid transparent;
+}
+
+.theme-default .ft-tab {
+	display: inline-block;
+	color: #222;
+	border: 1px solid transparent;
+	background-color: #f2f2f2;
+	padding: 10px 20px;
+	top: 1px;
+	position: relative;
+	z-index: 10;
+}
+
+.theme-default .ft-tab.active, .theme-default .ft-tab:hover {
+	color: #222;
+	background-color: #e6e6e6;
+	border-bottom-color: transparent;
+	position: relative;
+}
+
+.theme-default .ft-tab.active:before, .theme-default .ft-tab:hover:before {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	bottom: -1px;
+	left: -1px;
+	background-color: transparent;
+}
+
+.theme-default .ft-icon {
+	-webkit-transition: all .25s;
+	-o-transition: all .25s;
+	transition: all .25s;
+}
+
+.theme-default .ft-contents {
+	border: 1px solid transparent;
+	border-top: none;
+	background-color: #e6e6e6;
+}
+
+.theme-default .ft-content {
+	padding: 20px 30px;
+}
+
+@media only screen and (max-width: 767px) {
+	.theme-default .ft-nav {
+		border: none;
+	}
+	.theme-default .ft-tab {
+		display: block;
+		border: none;
+		margin: 5px 0;
+		top: 0;
+	}
+	.theme-default .ft-tab.active, .theme-default .ft-tab:hover {
+		background-color: #e6e6e6;
+	}
+	.theme-default .ft-contents {
+		border: none;
+		background-color: transparent;
+	}
+	.theme-default .ft-content.active {
+		background-color: #f8f8f8;
+	}
+}

@@ -1,0 +1,33 @@
+.flextabs {}
+.ft-nav { > * {} }
+.ft-tab {
+	&.mobile {
+		&.has-icon {
+			position: relative;
+			padding-right: 3.3em;
+			&.active {
+				.ft-icon {
+					transform: translateY(-50%) rotate(180deg);
+				}
+			}
+		}
+	}
+}
+.ft-icon {
+	width: 1.5em;
+	height: 1.5em;
+	position: absolute;
+	top: 50%; right: 1em;
+	transform: translateY(-50%);
+	>svg {
+		width: 1.5em;
+		height: 1.5em;
+	}
+}
+.ft-contents {
+	> * { display: none; }
+}
+
+.ft-content {
+	&.active { display: block; }
+}

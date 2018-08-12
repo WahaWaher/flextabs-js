@@ -1,0 +1,34 @@
+.ft-tab.mobile.has-icon {
+	position: relative;
+	padding-right: 3.3em;
+}
+
+.ft-tab.mobile.has-icon.active .ft-icon {
+	-webkit-transform: translateY(-50%) rotate(180deg);
+	    -ms-transform: translateY(-50%) rotate(180deg);
+	        transform: translateY(-50%) rotate(180deg);
+}
+
+.ft-icon {
+	width: 1.5em;
+	height: 1.5em;
+	position: absolute;
+	top: 50%;
+	right: 1em;
+	-webkit-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	        transform: translateY(-50%);
+}
+
+.ft-icon > svg {
+	width: 1.5em;
+	height: 1.5em;
+}
+
+.ft-contents > * {
+	display: none;
+}
+
+.ft-content.active {
+	display: block;
+}
