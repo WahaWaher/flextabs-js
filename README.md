@@ -1,8 +1,8 @@
-jQuery FlexTabs Plugin <sup>1.0.0</sup>
+jQuery FlexTabs Plugin <sup>1.0.2</sup>
 -------
 _Плагин для создания вкладок(табов)._
 
-* Адаптивный режим (трансформация в аккордион при заданной ширине окна).
+* Адаптивный режим (трансформация в аккордеон при заданной ширине окна).
 * Поддержка скинов (стили оформлений вынесены в отдельный файл)
 * Легко настраиваемая анимация переключения вкладок отдельно для десктопного и моб. режимов.
 
@@ -14,7 +14,7 @@ bower install --save flextabs-js
 
 ## Подключение:
 
-1. Подключить jQuery, jquery.flextabs.css, jquery.flextabs.theme-default.css, jquery.flextabs.js:
+**1. Подключить jQuery, jquery.flextabs.css, jquery.flextabs.theme-default.css, jquery.flextabs.js:**
 ```html
 <!-- jquery.flextabs.css - Основные стили -->
 <link rel="stylesheet" href="dist/jquery.flextabs.css">
@@ -28,7 +28,7 @@ bower install --save flextabs-js
 <!-- jquery.flextabs.js -->
 <script src="dist/jquery.flextabs.js"></script>
 ```
-2. Задать HTML-структуру вкладок:
+**2. Задать HTML-структуру вкладок:**
 ```html
 <div class="example-tabs theme-default">
 
@@ -51,7 +51,7 @@ bower install --save flextabs-js
 	<style>.ft-contents>*{display:block!important;}</style>
 </noscript>
 ```
-3. Инициализировать плагин на элементе/ах:
+**3. Инициализировать плагин на элементе/ах:**
 ```javascript
 $('.example-tabs').flexTabs({
 	// Параметры...
@@ -65,11 +65,11 @@ https://wahawaher.github.io/flextabs-js/
 
 Опция | Тип | Поум. | Описание
 ------ | ------ | --------- | ---------
-`breakpoint` | number | 768 | Ширина окна браузера в "px", при достижении которой произойдет переход между адаптивным и мобильным режимами. При смене этого параметра необх. скорректировать медиазапрос в файле с темой `jquery.flextabs.theme-default.css`.
-`listIcon` |  jQury object | [см.<sup>1</sup>](#option-tip-listIcon) | Иконка справа в раскрыващейся вкладке (моб. режим).
+`breakpoint` | number | 768 | Ширина окна браузера в "px", при достижении которой произойдет переход между адаптивным и мобильным режимами. При смене этого параметра необх. скорректировать медиа-запрос в файле с темой `jquery.flextabs.theme-default.css`.
+`listIcon` |  jQury object | [см.<sup>1</sup>](#option-tip-listIcon) | Иконка справа в раскрывающейся вкладке (моб. режим).
 `transformFade` | number | 0 | Эфф. плавной трансформации вкладок при смене режима, мс.
 
-_<div id="option-tip-listIcon">1. Иконка справа в раскрыващейся вкладке (моб. режим):</div>_
+_<div id="option-tip-listIcon">1. Иконка справа в раскрывающейся вкладке (моб. режим):</div>_
 ```javascript
 $('<div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M48.293 23.293l-16.293 16.293-16.293-16.293-1.414 1.561 17 17.146h1.414l17-17.146z"/></svg></div>')
 ```
@@ -147,7 +147,7 @@ $('.example-tabs').flexTabs('closeAll');
 - Класс `"active"` (с помощью которого указывается активная вкладка) можно устан. только на табах, либо же дублировать его и у тега ее содержания.
 - Класс `"theme-default"` у общего контейнера устанавливает класс соответствующей темы.
 - Классы `"ft-nav"` и `"ft-contents"` - обязательные. По ним идет поиск и привязка.
-- При смене параметра `breakpoint` (по ум. `768`) скорректировать медиазапрос `@media only screen and (max-width: 767px) {}` в файле с темой `jquery.flextabs.theme-default.css`.
+- При смене параметра `breakpoint` (по ум. `768`) скорректировать медиа-запрос `@media only screen and (max-width: 767px) {}` в файле с темой `jquery.flextabs.theme-default.css`.
 ### Анимация: 
 ```js
 $('.example-tabs').flexTabs({
@@ -180,7 +180,7 @@ $('.example-tabs').flexTabs({
 });
 ```
 ### Дата-атрибуты:
-Парметры в data-атрибуте имеют наивысший приоритет. Они переопределят параметры по умолчанию, а так же пользовательские параметры заданные при инициализации.
+Параметры в data-атрибуте имеют наивысший приоритет. Они переопределят параметры по умолчанию, а так же пользовательские параметры заданные при инициализации.
 ```javascript
 	// Инициализация группы элементов
 	$('.example-tabs').flexTabs();
@@ -213,6 +213,10 @@ $('.example-tabs').flexTabs({
 - jQuery версия 1.9.1 или выше
 
 ## История изменений:
+### 1.0.2 - 18.08.2018
+- Добавлена поддержка цепочек вызовов
+- Незначительные изменения в наименовании некоторых переменных
+- Некоторые правки в readme.md
 
 ## Лицензия (MIT)
 Copyright (c) 2018 Sergey Kravchenko

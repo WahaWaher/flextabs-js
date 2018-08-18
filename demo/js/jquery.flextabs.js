@@ -10,10 +10,10 @@
 				listIcon: $('<div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M48.293 23.293l-16.293 16.293-16.293-16.293-1.414 1.561 17 17.146h1.414l17-17.146z"/></svg></div>'),
 				transformFade: 0, // эфф. появления вкладок при смене режима, мс
 
-				beforeInit:    function(sets) {},
-				afterInit:     function(sets) {},
-				beforeChange:  function(sets, curItem, nextItem) {},
-				afterChange:   function(sets, curItem) {},
+				beforeInit:   function() {},
+				afterInit:    function() {},
+				beforeChange: function() {},
+				afterChange:  function() {},
 
 				// Вспомог.
 				layout: { nav: null, content: null, items: {}, },
@@ -89,10 +89,10 @@
 				});
 
 				// ID для генерации уник. имени пространства имен (для обработчиков)
-				sets.winNameSpaceID = randomInteger(10000000, 99999999);
+				sets._nsid = ranвInt(10000000, 99999999);
 
 				// Переходы по вкладкам. Событие
-				$ths.on('click.ft-'+sets.winNameSpaceID, function(e) {
+				$ths.on('click.ft-'+sets._nsid, function(e) {
 
 					var target = $(e.target), needTab;
 					if( target.hasClass('ft-tab') ) needTab = target;
@@ -109,7 +109,7 @@
 					 mobileTabs = sets.layout.nav.find('.ft-tab'),
 					 desktopTabs = sets.layout.contents.find('.ft-tab');
 
-				$(window).bind('resize.ft-'+sets.winNameSpaceID+' load.ft-'+sets.winNameSpaceID, getAdaptive).resize();
+				$(window).bind('resize.ft-'+sets._nsid+' load.ft-'+sets._nsid, getAdaptive).resize();
 
 				function getAdaptive() {
 
@@ -148,7 +148,7 @@
 
 			});
 
-			return this;
+			return $(this);
 		},
 
 		destroy: function() {
@@ -160,10 +160,10 @@
 				sets.layout.contents.find('.mobile').remove();
 
 				// удал. обработчик со вкладок
-				$ths.off('click.ft-'+sets.winNameSpaceID);
+				$ths.off('click.ft-'+sets._nsid);
 
 				// удал. обработчик с window (адапт. режим)
-				$(window).unbind('resize.ft-'+sets.winNameSpaceID+' load.ft-'+sets.winNameSpaceID);
+				$(window).unbind('resize.ft-'+sets._nsid+' load.ft-'+sets._nsid);
 
 				// восст. изначально открытую вкладку
 				$.each(sets.layout.items, function(key, value) {
@@ -184,7 +184,7 @@
 
 			}
 
-			return this;
+			return $(this);
 
 		},
 
@@ -198,7 +198,7 @@
 				methods.init.call($ths, newOpts);
 			else methods.init.call($ths, oldOpts);
 
-			return this;
+			return $(this);
 
 		},
 
@@ -247,7 +247,7 @@
 			// Callback: afterChange()
 			sets.afterChange.call($ths, sets, nextItem);
 
-			return this;
+			return $(this);
 
 		},
 
@@ -265,25 +265,27 @@
 				name: null
 			};
 
-			return this;
+			return $(this);
+
 		},
 
 	};
 
 	// Генератор случайного числа
-	function randomInteger(min, max) {
+	function ranвInt(min, max) {
 		var rand = min - 0.5 + Math.random() * (max - min + 1)
 		rand = Math.round(rand);
 		return rand;
 	}
 
-	$.fn.flexTabs = function(methodOrOptions) {
-		if ( methods[methodOrOptions] ) {
-			return methods[ methodOrOptions ].apply( this, Array.prototype.slice.call( arguments, 1 ));
-		} else if ( typeof methodOrOptions === 'object' || ! methodOrOptions ) {
+	$.fn.flexTabs = function(metOrOpts) {
+		if ( methods[metOrOpts] ) {
+			return methods[ metOrOpts ].apply( this, Array.prototype.slice.call( arguments, 1 ));
+		} else if ( typeof metOrOpts === 'object' || ! metOrOpts ) {
 			methods.init.apply( this, arguments );
+			return this;
 		} else {
-			$.error( 'Method ' +  methodOrOptions + ' does not exist on jQuery.flexTabs' );
+			$.error( 'Method ' +  metOrOpts + ' does not exist on jQuery.flexTabs' );
 		}    
 	};
 
