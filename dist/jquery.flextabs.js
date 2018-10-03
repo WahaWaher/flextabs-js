@@ -104,9 +104,14 @@
 				$ths.on('click.ft-'+sets._nsid, function(e) {
 
 					var target = $(e.target), needTab;
-					if( !target.hasClass('ft-tab') ) return false;
-					if( target.hasClass('ft-tab') ) needTab = target;
-					if( target.parents('.ft-tab').length ) needTab = target.parents('.ft-tab');
+
+					if( target.hasClass('ft-tab') ) {
+						needTab = target;
+					} else {
+						var closest = target.closest('.ft-tab', $ths);
+						if( closest.length ) needTab = closest;
+							else return false;
+					}
 
 					methods.go.call($ths, needTab.attr('href').replace(/#/g, ''));
 
