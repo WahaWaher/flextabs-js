@@ -1,6 +1,6 @@
 /**
  * jQuery.flexTabs
- * Version: 1.0.6
+ * Version: 1.0.8
  * Repo: https://github.com/WahaWaher/flextabs-js
  * Author: Sergey Kravchenko
  * Contacts: wahawaher@gmail.com
@@ -23,12 +23,14 @@
 				afterInit:    function() {},
 				beforeChange: function() {},
 				afterChange:  function() {},
+				onChangeMode: function() {},
 
 				// Вспомог.
 				layout: { nav: null, content: null, items: {}, },
 				curItemID: { id: 0, name: null },
 				curMode: null,
-				firstTabIndex: null
+				firstTabIndex: null,
+				modeChanged: false
 
 			}, $.fn.flexTabs.defaults);
 
@@ -132,7 +134,7 @@
 
 					// Режим "Desktop"
 					if( win.outerWidth() >= sets.breakpoint && (mode === true || mode === undefined) ) {
-
+						
 						mobileTabs.fadeIn(sets.transformFade);
 						desktopTabs.hide();
 						$.each(sets.layout.items, function() {
@@ -145,14 +147,26 @@
 
 						mode = false;
 
+
+						// Callback: onChangeMode()
+						if( sets.modeChanged )
+							sets.onChangeMode.call($ths, sets);
+						sets.modeChanged = true;
+
 					// Режим "Mobile"
 					} else if( win.outerWidth() < sets.breakpoint && (mode === false || mode === undefined) ) {
-
+						
 						mobileTabs.hide();
 						desktopTabs.fadeIn(sets.transformFade);
 						sets.curMode = 'mobile';
 
 						mode = true;
+
+						// Callback: onChangeMode()
+						if( sets.modeChanged )
+							sets.onChangeMode.call($ths, sets);
+						sets.modeChanged = true;
+
 					}
 				}
 

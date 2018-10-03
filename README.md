@@ -1,4 +1,4 @@
-jQuery FlexTabs Plugin <sup>1.0.7</sup>
+jQuery FlexTabs Plugin <sup>1.0.8</sup>
 -------
 _Плагин для создания вкладок(табов)._
 
@@ -82,13 +82,15 @@ Callback | Аргументы | Поум. | Описание
 `afterInit` | \[sets:object\] | n/a | После инициализации.
 `beforeChange` | \[sets:object, curItem:object, nextItem:object \] | n/a | Перед переключением вкладки.
 `afterChange` | \[sets:object, curItem:object \] | n/a | После переключения вкладки.
+`onChangeMode` | \[sets:object\] | n/a | При смене режима
 
 ```javascript
 $('.example-tabs').flexTabs({
 	beforeInit:    function(sets) {},
 	afterInit:     function(sets) {},
 	beforeChange:  function(sets, curItem, nextItem) {},
-	afterChange:   function(sets, curItem) {}
+	afterChange:   function(sets, curItem) {},
+	onChangeMode:  function(sets) {},
 });
 ```
 ## Публичные методы:
@@ -213,6 +215,8 @@ $('.example-tabs').flexTabs({
 - jQuery версия 1.9.1 или выше
 
 ## История изменений:
+### 1.0.8 - 03.10.2018
+- Добавлен колбэк `onChangeMode`
 ### 1.0.7 - 03.10.2018
 - Исправлено срабатывание колбэков `beforeChange` и `afterChange` при ресайзе
 - Исправлена ошибка, возникающая при клике по телу вкладки

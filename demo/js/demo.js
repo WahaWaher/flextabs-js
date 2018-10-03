@@ -35,6 +35,9 @@ $(document).ready(function() {
 				curItem.content.slideUp(350);
 			}
 
+		},
+		onChangeMode: function(sets) {
+			console.log( 'Смена режима: ', sets );
 		}
 	});
 
