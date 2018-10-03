@@ -1,6 +1,6 @@
 /**
  * jQuery.flexTabs
- * Version: 1.0.2
+ * Version: 1.0.6
  * Repo: https://github.com/WahaWaher/flextabs-js
  * Author: Sergey Kravchenko
  * Contacts: wahawaher@gmail.com
@@ -104,6 +104,7 @@
 				$ths.on('click.ft-'+sets._nsid, function(e) {
 
 					var target = $(e.target), needTab;
+					if( !target.hasClass('ft-tab') ) return false;
 					if( target.hasClass('ft-tab') ) needTab = target;
 					if( target.parents('.ft-tab').length ) needTab = target.parents('.ft-tab');
 
@@ -135,7 +136,7 @@
 							});
 						});
 						sets.curMode = 'desktop';
-						methods.go.call($ths, sets.curItemID.id);
+						methods.go.call($ths, sets.curItemID.id, 'resize');
 
 						mode = false;
 
@@ -211,8 +212,9 @@
 
 		},
 
-		go: function(next) {
+		go: function(next, switching) {
 			// "next" - number(id) или name(href)
+			// switch - источник переключения; 'resize' - перекл. при ресайзе
 			var $ths = $(this), sets = $ths.data('settings');
 
 			var curItem = sets.layout.items[sets.curItemID.name],
@@ -232,7 +234,8 @@
 			}
 
 			// Callback: beforeChange()
-			sets.beforeChange.call($ths, sets, curItem, nextItem);
+			if( switching != 'resize' )
+				sets.beforeChange.call($ths, sets, curItem, nextItem);
 		
 			if( sets.curMode == 'desktop' ) {
 
@@ -254,7 +257,8 @@
 			};
 
 			// Callback: afterChange()
-			sets.afterChange.call($ths, sets, nextItem);
+			if( switching != 'resize' )
+				sets.afterChange.call($ths, sets, nextItem);
 
 			return $(this);
 
