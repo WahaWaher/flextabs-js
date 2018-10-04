@@ -112,7 +112,7 @@
 					} else {
 						var closest = target.closest('.ft-tab', $ths);
 						if( closest.length ) needTab = closest;
-							else return false;
+							else return;
 					}
 
 					methods.go.call($ths, needTab.attr('href').replace(/#/g, ''));

@@ -11,7 +11,7 @@ const gulp = require('gulp'),
 		headerComment = require('gulp-header-comment'),
 		headerInfo = `
 	    	jQuery.flexTabs
-		   Version: 1.0.8
+		   Version: 1.0.9
 		   Repo: https://github.com/WahaWaher/flextabs-js
 		   Author: Sergey Kravchenko
 		   Contacts: wahawaher@gmail.com
