@@ -1,24 +1,24 @@
 ﻿/* ИНСТРУКЦИЯ ПО УСТАНОВКЕ:
 
-Проверить доступность "morecontent-js" в Bower "bower info morecontent-js"
-Проверить доступность "morecontent-js" в NPM "npm view morecontent-js" или npm-поиск https://www.npmjs.com
+Проверить доступность "flextabs-js" в Bower "bower info flextabs-js"
+Проверить доступность "flextabs-js" в NPM "npm view flextabs-js" или npm-поиск https://www.npmjs.com
 
 1. Создать корневую директорию плагина в папке domains (OpenServer).
-Задать имя  директории (lowercase) "morecontent.js"
+Задать имя  директории (lowercase) "flextabs.js"
 
 3. Назначить папку домена в OpenServer (Настройки/Домены)
-Имя домена: "morecontent.js" -> Папка домена: "morecontent.js/demo"
+Имя домена: "flextabs.js" -> Папка домена: "flextabs.js/demo"
 
 4. Указать варианты имён в файле "names.json".
 Указать описание и ключ. слова в "package.json".
 {
 	"version": "1.0.0",
 	"names": [
-		"morecontent",
-		"morecontent-js",
-		"MoreContent",
-		"moreContent",
-		"mrcnt"
+		"flextabs",
+		"flextabs-js",
+		"FlexTabs",
+		"flexTabs",
+		"ft"
 	]
 }
 
@@ -48,9 +48,9 @@ git commit -m "First Commit"
 - Проставить версии в файлах: README.md, gulpfile.js, package.json
 - Указать изменения в README.md (если есть)
 - Сборка "gulp build"
-- Создать GIT-репозиторий с именем "morecontent-js": https://github.com/new
+- Создать GIT-репозиторий с именем "flextabs-js": https://github.com/new
 
-git remote add origin https://github.com/WahaWaher/morecontent-js.git
+git remote add origin https://github.com/WahaWaher/flextabs-js.git
 git config credential.helper store
 
 git status
@@ -60,12 +60,12 @@ git tag -a v1.0.0 -m "Version 1.0.0"
 git push origin master --tags
 
 // Регистрация в BOWER:
-bower register morecontent-js https://github.com/WahaWaher/morecontent-js.git
-bower info morecontent-js
+bower register flextabs-js https://github.com/WahaWaher/flextabs-js.git
+bower info flextabs-js
 
 // Регистрация В NPM:
 npm login // Авторизация
-npm publish // Публикация пакета npm view morecontent-js https://www.npmjs.com/package/morecontent-js
+npm publish // Публикация пакета npm view flextabs-js https://www.npmjs.com/package/flextabs-js
 
 
 
@@ -78,11 +78,11 @@ npm publish // Публикация пакета npm view morecontent-js https:/
 
 git status
 git add .
-git commit -m "v1.0.1" // изм. версию на текущую
-git tag -a v1.0.1 -m "Version 1.0.1" // изм. версию на текущую
+git commit -m "v2.0.0" // изм. версию на текущую
+git tag -a v2.0.0 -m "Version 2.0.0" // изм. версию на текущую
 git push origin master --tags
 npm publish // Публикация новой версии пакета
-bower info morecontent-js // Проверка пакета Bower
-npm view morecontent-js // Проверка пакета NPM https://www.npmjs.com/package/morecontent-js
+bower info flextabs-js // Проверка пакета Bower
+npm view flextabs-js // Проверка пакета NPM https://www.npmjs.com/package/flextabs-js
 
 */
