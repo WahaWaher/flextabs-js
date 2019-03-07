@@ -1,80 +1,112 @@
-// Default Theme:
+$textColor: #222;
 $borderColor: transparent;
-$bgActiveColor: darken(#fff, 10%);
-$bgPassiveColor: darken(#fff, 5%);
+$bgActiveColor: darken(#fff, 5%);
+$bgPassiveColor: darken(#fff, 2%);
+$iconColor: $textColor;
 
-.theme-default {
-	margin: 25px 0;
-	.ft-nav {
-		border-bottom: 1px solid $borderColor;
-	}
-	.ft-tab {
-		display: inline-block;
-		color: #222;
-		border: 1px solid $borderColor;
-		background-color: $bgPassiveColor;
-		padding: 10px 20px;
-		top: 1px;
-		position: relative;
-		z-index: 10;
-		&.active, &:hover {
-			color: #222;
-			background-color: $bgActiveColor;
-			border-bottom-color: transparent;
+/* Режим: Tabs */
+.ft-theme-default.ft-tabs {
+	
+	// Панель вкладок
+	>.ft-nav {
+		
+		// Вкладка
+		>.ft-tab {
+			color: $textColor;
+			text-decoration: none;
+			border: 1px solid $borderColor;
+			background-color: $bgPassiveColor;
+			padding: 10px 20px;
+			top: 1px;
 			position: relative;
-			&:before {
-				content: '';
-				display: block;
-				position: absolute;
-				width: 1px; height: 1px;
-				bottom: -1px;
-				left: -1px;
-				background-color: $borderColor;
+			z-index: 10;
+			&.active, &:hover {
+				color: $textColor;
+				text-decoration: none;
+				background-color: $bgActiveColor;
+				border-bottom-color: transparent;
+				&:before {
+					content: '';
+					display: block;
+					position: absolute;
+					width: 1px; height: 1px;
+					bottom: -1px;
+					left: -1px;
+					background-color: $borderColor;
+				}
 			}
 		}
 	}
-	.ft-icon {
-		transition: all .25s;
-	}
-	.ft-contents {
-		border: 1px solid $borderColor;
-		border-top: none;
+	
+	// Контейнер с содержимым вкладок
+	>.ft-contents {
+		color: $textColor;
+		padding: 10px 15px;
 		background-color: $bgActiveColor;
-	}
-	.ft-content {
-		padding: 20px 30px;
-		&.active {
-		}
+
+		// Контейнер с содержимым отдельной вкладки
+		>.ft-content {}
+
+		// Вкладка для аккордеона
+		>.ft-tab {}
+
 	}
 
 }
 
-@media only screen and (max-width : 767px) {
+/* Режим: Accordion */
+.ft-theme-default.ft-accordion {
+	&.ft-container {}
 
-	.theme-default {
-		.ft-nav {
-			border: none;
-		}
-		.ft-tab {
-			display: block;
-			border: none;
-			margin: 5px 0;
-			top: 0;
+	// Панель вкладок
+	>.ft-nav {}
+	
+	// Контейнер с содержимым вкладок
+	>.ft-contents {
+		color: $textColor;
+
+		// Вкладка
+		>.ft-tab {
+			color: $textColor;
+			text-decoration: none;
+			border: 1px solid $borderColor;
+			background-color: $bgPassiveColor;
+			padding: 10px 15px;
+			margin: 3px 0;
 			&.active, &:hover {
+				color: $textColor;
+				text-decoration: none;
 				background-color: $bgActiveColor;
 			}
 		}
 
-		.ft-contents {
-			border: none;
-			background-color: transparent;
+		// Контейнер с содержимым отдельной вкладки
+		>.ft-content {
+			padding: 10px 15px;
+			background-color: #fff;
+			&.active {}
 		}
-		.ft-content {
-			&.active {
-				background-color: #f8f8f8;
+
+		// Вкладка с иконкой
+		>.ft-tab-icon {
+
+			// Контейнер иконки
+			.ft-icon {
+
+				// Иконка
+				>svg {
+					fill: $iconColor;
+				}
+
 			}
+
+			// Вкладка с иконкой: активная
+			&.active {
+				.ft-icon {}
+			}
+
 		}
 
 	}
-
+	
 }

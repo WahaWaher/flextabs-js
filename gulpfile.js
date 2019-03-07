@@ -1,6 +1,8 @@
 'use strict';
 
-const gulp = require('gulp'),
+const ver = '2.0.0',
+
+		gulp = require('gulp'),
 		browserSync = require('browser-sync').create(),
 		scss = require('gulp-sass'),
 		autoprefixer = require('gulp-autoprefixer'),
@@ -10,8 +12,24 @@ const gulp = require('gulp'),
 		cssnano = require('gulp-cssnano'),
 		headerComment = require('gulp-header-comment'),
 		headerInfo = `
-	    	jQuery.flexTabs
-		   Version: 1.0.9
+	    	jQuery FlexTabs
+		   Version: ${ver}
+		   Repo: https://github.com/WahaWaher/flextabs-js
+		   Author: Sergey Kravchenko
+		   Contacts: wahawaher@gmail.com
+		   License: MIT
+	  `,
+	  headerInfoTheme = `
+	    	jQuery FlexTabs Theme Default
+		   Version: ${ver}
+		   Repo: https://github.com/WahaWaher/flextabs-js
+		   Author: Sergey Kravchenko
+		   Contacts: wahawaher@gmail.com
+		   License: MIT
+	  `,
+	  headerInfoThemeTemplate = `
+	    	jQuery FlexTabs Theme Template
+		   Version: ${ver}
 		   Repo: https://github.com/WahaWaher/flextabs-js
 		   Author: Sergey Kravchenko
 		   Contacts: wahawaher@gmail.com
@@ -34,7 +52,7 @@ gulp.task('scss', function() {
 			indentType: "tab", 
 			indentWidth: 1
     })).pipe(autoprefixer({
-            browsers: ['last 30 versions', '> 0.5%', 'ie 9-11'], // github.com/ai/browserslist#queries
+            browsers: ['last 2 versions'/*, '> 0.5%'*/], // github.com/ai/browserslist#queries
         }))
     .pipe(gulp.dest('demo/css'))
     .pipe(browserSync.stream())
@@ -48,38 +66,55 @@ gulp.task('default', ['browser-sync', 'scss'], function() {
 
 gulp.task('build', ['deldist', 'scss'], function() {
 
+	// js
 	gulp.src([
 		'demo/js/jquery.flextabs.js'
 		])
 	.pipe(headerComment(headerInfo))
 	.pipe(gulp.dest('dist'));
 
+	// js min
 	gulp.src('demo/js/jquery.flextabs.js')
 	.pipe(uglify())
 	.pipe(rename({ suffix: '.min' }))
 	.pipe(headerComment(headerInfo))
 	.pipe(gulp.dest('dist'));
 
+	// css common
 	gulp.src([
 		'demo/css/jquery.flextabs.css',
-		'demo/css/jquery.flextabs.theme-default.css'
 		])
 	.pipe(headerComment(headerInfo))
 	.pipe(gulp.dest('dist'));
 
+	// css common min
 	gulp.src('demo/css/jquery.flextabs.css')
 	.pipe(cssnano({ discardComments: { removeAll: true } }))
    .pipe(rename({ suffix: '.min' }))
    .pipe(headerComment(headerInfo))
 	.pipe(gulp.dest('dist'));
 
+
+	// css theme default
+	gulp.src([
+		'demo/css/jquery.flextabs.theme-default.css',
+		])
+	.pipe(headerComment(headerInfoTheme))
+	.pipe(gulp.dest('dist'));
+
+	// css theme default min
 	gulp.src('demo/css/jquery.flextabs.theme-default.css')
 	.pipe(cssnano({ discardComments: { removeAll: true } }))
    .pipe(rename({ suffix: '.min' }))
-   .pipe(headerComment(headerInfo))
+   .pipe(headerComment(headerInfoTheme))
 	.pipe(gulp.dest('dist'));
 
-	// gulp.src(['demo/folder/**/*']).pipe(gulp.dest('dist/folder'));
+	// css theme default
+	// gulp.src([
+	// 	'demo/scss/jquery.flextabs.theme-template.scss',
+	// 	])
+	// .pipe(headerComment(headerInfoThemeTemplate))
+	// .pipe(gulp.dest('dist'));
 
 });
 

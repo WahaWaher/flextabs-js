@@ -1,30 +1,24 @@
-.theme-default {
-	margin: 25px 0;
-}
-
-.theme-default .ft-nav {
-	border-bottom: 1px solid transparent;
-}
-
-.theme-default .ft-tab {
-	display: inline-block;
+@charset "UTF-8";
+/* Режим: Tabs */
+.ft-theme-default.ft-tabs > .ft-nav > .ft-tab {
 	color: #222;
+	text-decoration: none;
 	border: 1px solid transparent;
-	background-color: #f2f2f2;
+	background-color: #fafafa;
 	padding: 10px 20px;
 	top: 1px;
 	position: relative;
 	z-index: 10;
 }
 
-.theme-default .ft-tab.active, .theme-default .ft-tab:hover {
+.ft-theme-default.ft-tabs > .ft-nav > .ft-tab.active, .ft-theme-default.ft-tabs > .ft-nav > .ft-tab:hover {
 	color: #222;
-	background-color: #e6e6e6;
+	text-decoration: none;
+	background-color: #f2f2f2;
 	border-bottom-color: transparent;
-	position: relative;
 }
 
-.theme-default .ft-tab.active:before, .theme-default .ft-tab:hover:before {
+.ft-theme-default.ft-tabs > .ft-nav > .ft-tab.active:before, .ft-theme-default.ft-tabs > .ft-nav > .ft-tab:hover:before {
 	content: '';
 	display: block;
 	position: absolute;
@@ -35,40 +29,37 @@
 	background-color: transparent;
 }
 
-.theme-default .ft-icon {
-	-webkit-transition: all .25s;
-	-o-transition: all .25s;
-	transition: all .25s;
+.ft-theme-default.ft-tabs > .ft-contents {
+	color: #222;
+	padding: 10px 15px;
+	background-color: #f2f2f2;
 }
 
-.theme-default .ft-contents {
+/* Режим: Accordion */
+.ft-theme-default.ft-accordion > .ft-contents {
+	color: #222;
+}
+
+.ft-theme-default.ft-accordion > .ft-contents > .ft-tab {
+	color: #222;
+	text-decoration: none;
 	border: 1px solid transparent;
-	border-top: none;
-	background-color: #e6e6e6;
+	background-color: #fafafa;
+	padding: 10px 15px;
+	margin: 3px 0;
 }
 
-.theme-default .ft-content {
-	padding: 20px 30px;
+.ft-theme-default.ft-accordion > .ft-contents > .ft-tab.active, .ft-theme-default.ft-accordion > .ft-contents > .ft-tab:hover {
+	color: #222;
+	text-decoration: none;
+	background-color: #f2f2f2;
 }
 
-@media only screen and (max-width: 767px) {
-	.theme-default .ft-nav {
-		border: none;
-	}
-	.theme-default .ft-tab {
-		display: block;
-		border: none;
-		margin: 5px 0;
-		top: 0;
-	}
-	.theme-default .ft-tab.active, .theme-default .ft-tab:hover {
-		background-color: #e6e6e6;
-	}
-	.theme-default .ft-contents {
-		border: none;
-		background-color: transparent;
-	}
-	.theme-default .ft-content.active {
-		background-color: #f8f8f8;
-	}
+.ft-theme-default.ft-accordion > .ft-contents > .ft-content {
+	padding: 10px 15px;
+	background-color: #fff;
+}
+
+.ft-theme-default.ft-accordion > .ft-contents > .ft-tab-icon .ft-icon > svg {
+	fill: #222;
 }

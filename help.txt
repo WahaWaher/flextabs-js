@@ -1,0 +1,88 @@
+﻿/* ИНСТРУКЦИЯ ПО УСТАНОВКЕ:
+
+Проверить доступность "morecontent-js" в Bower "bower info morecontent-js"
+Проверить доступность "morecontent-js" в NPM "npm view morecontent-js" или npm-поиск https://www.npmjs.com
+
+1. Создать корневую директорию плагина в папке domains (OpenServer).
+Задать имя  директории (lowercase) "morecontent.js"
+
+3. Назначить папку домена в OpenServer (Настройки/Домены)
+Имя домена: "morecontent.js" -> Папка домена: "morecontent.js/demo"
+
+4. Указать варианты имён в файле "names.json".
+Указать описание и ключ. слова в "package.json".
+{
+	"version": "1.0.0",
+	"names": [
+		"morecontent",
+		"morecontent-js",
+		"MoreContent",
+		"moreContent",
+		"mrcnt"
+	]
+}
+
+5. Консоль: (уч. node+npm, bower, gulp, git установлены глобально).
+npm i // Установка npm-зависимостей
+bower i // Установка bower-зависимостей
+gulp rename // Автоматическая замена имен
+gulp // Запуск
+gulp build // Сборка
+
+
+
+ПЕРВИЧНЫЙ ЗАПУСК GIT:
+----------------------
+gulp build
+// Проверить все файлы + собранный вариант
+
+git init
+git status
+git add .
+git commit -m "First Commit"
+
+
+
+РЕЛИЗ(первая версия): GIT, BOWER, NPM:
+--------------------------------------
+- Проставить версии в файлах: README.md, gulpfile.js, package.json
+- Указать изменения в README.md (если есть)
+- Сборка "gulp build"
+- Создать GIT-репозиторий с именем "morecontent-js": https://github.com/new
+
+git remote add origin https://github.com/WahaWaher/morecontent-js.git
+git config credential.helper store
+
+git status
+git add .
+git commit -m "v1.0.0"
+git tag -a v1.0.0 -m "Version 1.0.0"
+git push origin master --tags
+
+// Регистрация в BOWER:
+bower register morecontent-js https://github.com/WahaWaher/morecontent-js.git
+bower info morecontent-js
+
+// Регистрация В NPM:
+npm login // Авторизация
+npm publish // Публикация пакета npm view morecontent-js https://www.npmjs.com/package/morecontent-js
+
+
+
+ОБНОВЛЕНИЕ:
+-----------
+- Внести необх. изменения в файлах
+- Проставить новые версии в файлах: README.md, gulpfile.js, package.json
+- Указать изменения в логе, README.md
+- Сборка "gulp build"
+
+git status
+git add .
+git commit -m "v1.0.1" // изм. версию на текущую
+git tag -a v1.0.1 -m "Version 1.0.1" // изм. версию на текущую
+git push origin master --tags
+npm publish // Публикация новой версии пакета
+bower info morecontent-js // Проверка пакета Bower
+npm view morecontent-js // Проверка пакета NPM https://www.npmjs.com/package/morecontent-js
+
+*/

@@ -1,65 +1,98 @@
 $(document).ready(function() {
 
-	$.fn.flexTabs.defaults = {
-		// transformFade: 1000
-	};
+	function animateCSS(elements, animationName, duration, delay, callback) {
 
-	$('.custom-tabs').flexTabs({
-		// breakpoint: 768,
-		// listIcon: false,
-		transformFade: 250,
-		beforeChange: function(sets, curItem, nextItem) {
+		var duration = duration >= 0 ? duration/1000 : '',
+			 delay = delay >= 0 ? delay/1000 : '';
 
-			/* Анимация: исправл. для обратной анимации, моб. */
-			if( sets.curMode == 'mobile' ) {
-				nextItem.content.css({
-					display: 'block'
-				});
-			}
+		elements.addClass('animated ' + animationName)
+				 .css({
+				 	'animation-duration': duration + 's',
+				 	'animation-delay': delay + 's',
+				 });
 
-		},
-		afterChange: function(sets, curItem) {
-			
-			/* Анимация. Десктоп. Появление вкладок */
-			if( sets.curMode == 'desktop' ) {
-				curItem.content.hide().fadeIn(250);
-			}
-
-			/* Анимация. Мобильные. Появление вкладок */
-			if( sets.curMode == 'mobile' && curItem.content.hasClass('active') ) {
-				curItem.content.hide().slideDown(350);
-			}
-
-			/* Анимация. Мобильные. Исчезновение вкладок */
-			if( sets.curMode == 'mobile' && !curItem.content.hasClass('active') ) {
-				curItem.content.slideUp(350);
-			}
-
-		},
-		onChangeMode: function(sets) {
-			console.log( 'Смена режима: ', sets );
+		function handleAnimationEnd() {
+			elements.removeClass('animated ' + animationName)
+			.css({
+			 	'animation-duration': '',
+			 	'animation-delay': '',
+			});
+			elements.off('animationend', handleAnimationEnd);
+			if (typeof callback === 'function') callback();
 		}
+
+		elements.on('animationend', handleAnimationEnd);
+
+	}
+
+	function animateCSSRemove(elements, animationName) {
+		elements.removeClass('animated ' + animationName);
+	}
+
+	console.time('t');
+
+	var ex = $('[data-ft]');
+
+	// События
+	ex.on('afterInit.ft', function(e, instance) {});
+	ex.on('afterOpen.ft', function(e, instance, targetTab) {});
+	ex.on('afterClose.ft', function(e, instance, targetTab) {});
+	ex.on('beforeChangeMode.ft', function(e, instance) {});
+	ex.on('afterChangeMode.ft', function(e, instance) {});
+
+	ex.flexTabs('init', {
+		// fade: 0,
+		// theme: false,
+		// icon: false,
+		// collapsible: false
 	});
 
-	// Переход на вкладку (число или id(href) вкладки)
-	// $('.custom-tabs').eq(0).flexTabs('go', 3);
+	console.timeEnd('t');
 
-	// Закрыть все вкладки
-	// $('.custom-tabs').eq(0).flexTabs('closeAll');
+	$('[data-meth]').on('click', function() {
+		var string = $(this).data('meth').split(':'),
+			 meth = string[0],
+			 arg =  string[1];
 
-	// Init
-	$('.init').on('click', function() {
-		$('.custom-tabs').eq(0).flexTabs('init');
+		console.log( 'Ручной вызов метода: ' + $(this).text() );
+		ex.flexTabs(meth, arg);
 	});
 
-	// Destroy
-	$('.destroy').on('click', function() {
-		$('.custom-tabs').eq(0).flexTabs('destroy');
+	$('[data-control-meth]').on('click', function() {
+		var meth = $(this).attr('data-control-meth'),
+			 target = Number($(this).next().val());
+
+		if( meth === 'closeAll' )
+			ex.flexTabs(meth);
+		else
+			ex.flexTabs(meth, target);
+
 	});
 
-	// Reinit
-	$('.reinit').on('click', function() {
-		$('.custom-tabs').eq(0).flexTabs('reinit');
-	});
+	// ex.on('afterOpen.ft', function(e, instance, targetTab) {
+	// 	console.log( $(instance.it).attr('id'), instance.active );
+
+	// 	var query = '';
+	// 	$.each({
+	// 		"animals": [0,1,2],
+	// 		"planets": [2,3]
+	// 	}, function(instID, params) {
+	// 		query += instID;
+	// 		if( params ) {
+	// 			query += '=';
+	// 			for (var i = 0; i < params.length; i++) {
+	// 				query += params[i];
+	// 				if( i < params.length - 1 )
+	// 					query += ',';
+	// 			};
+	// 		}
+	// 		query += '&';
+	// 	});
+	// 	query = query.replace(/\&$/ig, '');
+
+	// });
+	// ex.on('afterClose.ft', function(e, instance, targetTab) {
+	// 	console.log( $(instance.it).attr('id'), instance.active );
+	// });
 
 });
