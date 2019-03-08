@@ -1,5 +1,6 @@
 jQuery FlexTabs Plugin <sup>2.0.0</sup>
 -------
+[![](https://data.jsdelivr.com/v1/package/npm/flextabs-js/badge)](https://www.jsdelivr.com/package/npm/flextabs-js)
 _**jQuery-плагин**, для создания адаптивных вкладок (**табы**, **аккордеон**, **спойлер**)_
 
 * Два режима отображения: tabs, accordion + (accordion с одной вкладкой в качестве спойлера)
