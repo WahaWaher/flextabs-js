@@ -11,15 +11,6 @@ _**jQuery-плагин**, для создания адаптивных вкла�
 
 [Демо: Стандартный вариант](http://wahawaher.ru/flextabs-js/demo-default.html) | [Демо: Анимация](http://wahawaher.ru/flextabs-js/demo-animation.html) | [Документация](http://wahawaher.ru/flextabs-js)
 
-## Пакетные менеджеры:
-```sh
-# Bower
-bower install --save flextabs-js
-
-# NPM
-npm install --save flextabs-js
-```
-
 ## CDN:
 ```sh
 // Последняя доступная версия
@@ -29,6 +20,15 @@ https://cdn.jsdelivr.net/gh/WahaWaher/flextabs-js/dist/jquery.flextabs.theme-def
 
 // Версия на выбор
 https://cdn.jsdelivr.net/gh/WahaWaher/flextabs-js@2.0.0/dist/jquery.flextabs.min.js
+```
+
+## Пакетные менеджеры:
+```sh
+# Bower
+bower install --save flextabs-js
+
+# NPM
+npm install --save flextabs-js
 ```
 
 ## Подключение:
