@@ -20,6 +20,17 @@ bower install --save flextabs-js
 npm install --save flextabs-js
 ```
 
+## CDN:
+```sh
+// Последняя доступная версия
+https://cdn.jsdelivr.net/gh/WahaWaher/flextabs-js/dist/jquery.flextabs.min.js
+https://cdn.jsdelivr.net/gh/WahaWaher/flextabs-js/dist/jquery.flextabs.min.css
+https://cdn.jsdelivr.net/gh/WahaWaher/flextabs-js/dist/jquery.flextabs.theme-default.min.css
+
+// Версия на выбор
+https://cdn.jsdelivr.net/gh/WahaWaher/flextabs-js@2.0.0/dist/jquery.flextabs.min.js
+```
+
 ## Подключение:
 
 1. Подключить скрипты и стили:
