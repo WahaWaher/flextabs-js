@@ -13,13 +13,7 @@ _**jQuery-плагин**, для создания адаптивных вкла�
 
 ## CDN:
 ```sh
-// Последняя доступная версия
-https://cdn.jsdelivr.net/gh/WahaWaher/flextabs-js/dist/jquery.flextabs.min.js
-https://cdn.jsdelivr.net/gh/WahaWaher/flextabs-js/dist/jquery.flextabs.min.css
-https://cdn.jsdelivr.net/gh/WahaWaher/flextabs-js/dist/jquery.flextabs.theme-default.min.css
-
-// Версия на выбор
-https://cdn.jsdelivr.net/gh/WahaWaher/flextabs-js@2.0.0/dist/jquery.flextabs.min.js
+https://www.jsdelivr.com/package/npm/flextabs-js?path=dist
 ```
 
 ## Пакетные менеджеры:
