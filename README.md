@@ -12,9 +12,7 @@ _**jQuery-плагин**, для создания адаптивных вкла�
 [Демо: Стандартный вариант](http://wahawaher.ru/flextabs-js/demo-default.html) | [Демо: Анимация](http://wahawaher.ru/flextabs-js/demo-animation.html) | [Документация](http://wahawaher.ru/flextabs-js)
 
 ## CDN:
-```sh
-https://www.jsdelivr.com/package/npm/flextabs-js?path=dist
-```
+[https://www.jsdelivr.com/package/npm/flextabs-js?path=dist](https://www.jsdelivr.com/package/npm/flextabs-js?path=dist)
 
 ## Пакетные менеджеры:
 ```sh
