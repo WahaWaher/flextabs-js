@@ -10,7 +10,7 @@ _**jQuery-плагин**, для создания адаптивных вкла�
 * Пользовательская анимация при открытии/закрытии вкладок и смене режима
 <br>
 
-[Демо: Стандартный вариант](http://wahawaher.ru/flextabs-js/demo-default.html) | [Демо: Анимация](http://wahawaher.ru/flextabs-js/demo-animation.html) | [Документация](http://wahawaher.ru/flextabs-js)
+[Демо: Стандартный вариант](http://wahawaher.000webhostapp.com/flextabs-js/demo-default.html) | [Демо: Анимация](http://wahawaher.000webhostapp.com/flextabs-js/demo-animation.html) | [Документация](http://wahawaher.000webhostapp.com/flextabs-js)
 
 ## CDN:
 [https://www.jsdelivr.com/package/npm/flextabs-js?path=dist](https://www.jsdelivr.com/package/npm/flextabs-js?path=dist)
