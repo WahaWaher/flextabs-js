@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<title>jQuery FlexTabs — Демо: Анимация</title>
+
+	<meta name="description" content="jQuery FlexTabs — плагин для создания адаптивных вкладок (табы, аккордеон, спойлер)">
+	<meta name="keywords" content="jquery, jq, js, tabs, accordion, spoiler, flextabs">
+
+	<!-- Favicons  -->
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="../img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../img/favicon/apple-touch-icon-114x114.png">
+
+	<!-- Bootstrap Grid System 3.3.4 + Normalizer -->
+	<style>html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}html{font-size:10px;-webkit-tap-highlight-color:transparent}body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.42857143;color:#333;background-color:#fff}input,button,select,textarea{font-family:inherit;font-size:inherit;line-height:inherit}a{color:#337ab7;text-decoration:none}a:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}figure{margin:0}img{vertical-align:middle}.img-responsive{display:block;max-width:100%;height:auto}.img-rounded{border-radius:6px}.img-thumbnail{padding:4px;line-height:1.42857143;background-color:#fff;border:1px solid #ddd;border-radius:4px;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;transition:all .2s ease-in-out;display:inline-block;max-width:100%;height:auto}.img-circle{border-radius:50%}hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eee}.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);border:0}.sr-only-focusable:active,.sr-only-focusable:focus{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto}.container{margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px}@media (min-width: 768px){.container{width:750px}}@media (min-width: 992px){.container{width:970px}}@media (min-width: 1200px){.container{width:1170px}}.container-fluid{margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px}.row{margin-left:-15px;margin-right:-15px}.col-xs-1,.col-sm-1,.col-md-1,.col-lg-1,.col-xs-2,.col-sm-2,.col-md-2,.col-lg-2,.col-xs-3,.col-sm-3,.col-md-3,.col-lg-3,.col-xs-4,.col-sm-4,.col-md-4,.col-lg-4,.col-xs-5,.col-sm-5,.col-md-5,.col-lg-5,.col-xs-6,.col-sm-6,.col-md-6,.col-lg-6,.col-xs-7,.col-sm-7,.col-md-7,.col-lg-7,.col-xs-8,.col-sm-8,.col-md-8,.col-lg-8,.col-xs-9,.col-sm-9,.col-md-9,.col-lg-9,.col-xs-10,.col-sm-10,.col-md-10,.col-lg-10,.col-xs-11,.col-sm-11,.col-md-11,.col-lg-11,.col-xs-12,.col-sm-12,.col-md-12,.col-lg-12{position:relative;min-height:1px;padding-left:15px;padding-right:15px}.col-xs-1,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9,.col-xs-10,.col-xs-11,.col-xs-12{float:left}.col-xs-12{width:100%}.col-xs-11{width:91.66666667%}.col-xs-10{width:83.33333333%}.col-xs-9{width:75%}.col-xs-8{width:66.66666667%}.col-xs-7{width:58.33333333%}.col-xs-6{width:50%}.col-xs-5{width:41.66666667%}.col-xs-4{width:33.33333333%}.col-xs-3{width:25%}.col-xs-2{width:16.66666667%}.col-xs-1{width:8.33333333%}.col-xs-pull-12{right:100%}.col-xs-pull-11{right:91.66666667%}.col-xs-pull-10{right:83.33333333%}.col-xs-pull-9{right:75%}.col-xs-pull-8{right:66.66666667%}.col-xs-pull-7{right:58.33333333%}.col-xs-pull-6{right:50%}.col-xs-pull-5{right:41.66666667%}.col-xs-pull-4{right:33.33333333%}.col-xs-pull-3{right:25%}.col-xs-pull-2{right:16.66666667%}.col-xs-pull-1{right:8.33333333%}.col-xs-pull-0{right:auto}.col-xs-push-12{left:100%}.col-xs-push-11{left:91.66666667%}.col-xs-push-10{left:83.33333333%}.col-xs-push-9{left:75%}.col-xs-push-8{left:66.66666667%}.col-xs-push-7{left:58.33333333%}.col-xs-push-6{left:50%}.col-xs-push-5{left:41.66666667%}.col-xs-push-4{left:33.33333333%}.col-xs-push-3{left:25%}.col-xs-push-2{left:16.66666667%}.col-xs-push-1{left:8.33333333%}.col-xs-push-0{left:auto}.col-xs-offset-12{margin-left:100%}.col-xs-offset-11{margin-left:91.66666667%}.col-xs-offset-10{margin-left:83.33333333%}.col-xs-offset-9{margin-left:75%}.col-xs-offset-8{margin-left:66.66666667%}.col-xs-offset-7{margin-left:58.33333333%}.col-xs-offset-6{margin-left:50%}.col-xs-offset-5{margin-left:41.66666667%}.col-xs-offset-4{margin-left:33.33333333%}.col-xs-offset-3{margin-left:25%}.col-xs-offset-2{margin-left:16.66666667%}.col-xs-offset-1{margin-left:8.33333333%}.col-xs-offset-0{margin-left:0}@media (min-width: 768px){.col-sm-1,.col-sm-2,.col-sm-3,.col-sm-4,.col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.col-sm-10,.col-sm-11,.col-sm-12{float:left}.col-sm-12{width:100%}.col-sm-11{width:91.66666667%}.col-sm-10{width:83.33333333%}.col-sm-9{width:75%}.col-sm-8{width:66.66666667%}.col-sm-7{width:58.33333333%}.col-sm-6{width:50%}.col-sm-5{width:41.66666667%}.col-sm-4{width:33.33333333%}.col-sm-3{width:25%}.col-sm-2{width:16.66666667%}.col-sm-1{width:8.33333333%}.col-sm-pull-12{right:100%}.col-sm-pull-11{right:91.66666667%}.col-sm-pull-10{right:83.33333333%}.col-sm-pull-9{right:75%}.col-sm-pull-8{right:66.66666667%}.col-sm-pull-7{right:58.33333333%}.col-sm-pull-6{right:50%}.col-sm-pull-5{right:41.66666667%}.col-sm-pull-4{right:33.33333333%}.col-sm-pull-3{right:25%}.col-sm-pull-2{right:16.66666667%}.col-sm-pull-1{right:8.33333333%}.col-sm-pull-0{right:auto}.col-sm-push-12{left:100%}.col-sm-push-11{left:91.66666667%}.col-sm-push-10{left:83.33333333%}.col-sm-push-9{left:75%}.col-sm-push-8{left:66.66666667%}.col-sm-push-7{left:58.33333333%}.col-sm-push-6{left:50%}.col-sm-push-5{left:41.66666667%}.col-sm-push-4{left:33.33333333%}.col-sm-push-3{left:25%}.col-sm-push-2{left:16.66666667%}.col-sm-push-1{left:8.33333333%}.col-sm-push-0{left:auto}.col-sm-offset-12{margin-left:100%}.col-sm-offset-11{margin-left:91.66666667%}.col-sm-offset-10{margin-left:83.33333333%}.col-sm-offset-9{margin-left:75%}.col-sm-offset-8{margin-left:66.66666667%}.col-sm-offset-7{margin-left:58.33333333%}.col-sm-offset-6{margin-left:50%}.col-sm-offset-5{margin-left:41.66666667%}.col-sm-offset-4{margin-left:33.33333333%}.col-sm-offset-3{margin-left:25%}.col-sm-offset-2{margin-left:16.66666667%}.col-sm-offset-1{margin-left:8.33333333%}.col-sm-offset-0{margin-left:0}}@media (min-width: 992px){.col-md-1,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-md-10,.col-md-11,.col-md-12{float:left}.col-md-12{width:100%}.col-md-11{width:91.66666667%}.col-md-10{width:83.33333333%}.col-md-9{width:75%}.col-md-8{width:66.66666667%}.col-md-7{width:58.33333333%}.col-md-6{width:50%}.col-md-5{width:41.66666667%}.col-md-4{width:33.33333333%}.col-md-3{width:25%}.col-md-2{width:16.66666667%}.col-md-1{width:8.33333333%}.col-md-pull-12{right:100%}.col-md-pull-11{right:91.66666667%}.col-md-pull-10{right:83.33333333%}.col-md-pull-9{right:75%}.col-md-pull-8{right:66.66666667%}.col-md-pull-7{right:58.33333333%}.col-md-pull-6{right:50%}.col-md-pull-5{right:41.66666667%}.col-md-pull-4{right:33.33333333%}.col-md-pull-3{right:25%}.col-md-pull-2{right:16.66666667%}.col-md-pull-1{right:8.33333333%}.col-md-pull-0{right:auto}.col-md-push-12{left:100%}.col-md-push-11{left:91.66666667%}.col-md-push-10{left:83.33333333%}.col-md-push-9{left:75%}.col-md-push-8{left:66.66666667%}.col-md-push-7{left:58.33333333%}.col-md-push-6{left:50%}.col-md-push-5{left:41.66666667%}.col-md-push-4{left:33.33333333%}.col-md-push-3{left:25%}.col-md-push-2{left:16.66666667%}.col-md-push-1{left:8.33333333%}.col-md-push-0{left:auto}.col-md-offset-12{margin-left:100%}.col-md-offset-11{margin-left:91.66666667%}.col-md-offset-10{margin-left:83.33333333%}.col-md-offset-9{margin-left:75%}.col-md-offset-8{margin-left:66.66666667%}.col-md-offset-7{margin-left:58.33333333%}.col-md-offset-6{margin-left:50%}.col-md-offset-5{margin-left:41.66666667%}.col-md-offset-4{margin-left:33.33333333%}.col-md-offset-3{margin-left:25%}.col-md-offset-2{margin-left:16.66666667%}.col-md-offset-1{margin-left:8.33333333%}.col-md-offset-0{margin-left:0}}@media (min-width: 1200px){.col-lg-1,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,.col-lg-10,.col-lg-11,.col-lg-12{float:left}.col-lg-12{width:100%}.col-lg-11{width:91.66666667%}.col-lg-10{width:83.33333333%}.col-lg-9{width:75%}.col-lg-8{width:66.66666667%}.col-lg-7{width:58.33333333%}.col-lg-6{width:50%}.col-lg-5{width:41.66666667%}.col-lg-4{width:33.33333333%}.col-lg-3{width:25%}.col-lg-2{width:16.66666667%}.col-lg-1{width:8.33333333%}.col-lg-pull-12{right:100%}.col-lg-pull-11{right:91.66666667%}.col-lg-pull-10{right:83.33333333%}.col-lg-pull-9{right:75%}.col-lg-pull-8{right:66.66666667%}.col-lg-pull-7{right:58.33333333%}.col-lg-pull-6{right:50%}.col-lg-pull-5{right:41.66666667%}.col-lg-pull-4{right:33.33333333%}.col-lg-pull-3{right:25%}.col-lg-pull-2{right:16.66666667%}.col-lg-pull-1{right:8.33333333%}.col-lg-pull-0{right:auto}.col-lg-push-12{left:100%}.col-lg-push-11{left:91.66666667%}.col-lg-push-10{left:83.33333333%}.col-lg-push-9{left:75%}.col-lg-push-8{left:66.66666667%}.col-lg-push-7{left:58.33333333%}.col-lg-push-6{left:50%}.col-lg-push-5{left:41.66666667%}.col-lg-push-4{left:33.33333333%}.col-lg-push-3{left:25%}.col-lg-push-2{left:16.66666667%}.col-lg-push-1{left:8.33333333%}.col-lg-push-0{left:auto}.col-lg-offset-12{margin-left:100%}.col-lg-offset-11{margin-left:91.66666667%}.col-lg-offset-10{margin-left:83.33333333%}.col-lg-offset-9{margin-left:75%}.col-lg-offset-8{margin-left:66.66666667%}.col-lg-offset-7{margin-left:58.33333333%}.col-lg-offset-6{margin-left:50%}.col-lg-offset-5{margin-left:41.66666667%}.col-lg-offset-4{margin-left:33.33333333%}.col-lg-offset-3{margin-left:25%}.col-lg-offset-2{margin-left:16.66666667%}.col-lg-offset-1{margin-left:8.33333333%}.col-lg-offset-0{margin-left:0}}.clearfix:before,.clearfix:after,.container:before,.container:after,.container-fluid:before,.container-fluid:after,.row:before,.row:after{content:" ";display:table}.clearfix:after,.container:after,.container-fluid:after,.row:after{clear:both}.center-block{display:block;margin-left:auto;margin-right:auto}.pull-right{float:right!important}.pull-left{float:left!important}.hide{display:none!important}.show{display:block!important}.invisible{visibility:hidden}.text-hide{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}.hidden{display:none!important;visibility:hidden!important}.affix{position:fixed}.visible-xs,.visible-sm,.visible-md,.visible-lg{display:none!important}.visible-xs-block,.visible-xs-inline,.visible-xs-inline-block,.visible-sm-block,.visible-sm-inline,.visible-sm-inline-block,.visible-md-block,.visible-md-inline,.visible-md-inline-block,.visible-lg-block,.visible-lg-inline,.visible-lg-inline-block{display:none!important}@media (max-width: 767px){.visible-xs{display:block!important}table.visible-xs{display:table}tr.visible-xs{display:table-row!important}th.visible-xs,td.visible-xs{display:table-cell!important}.visible-xs-block{display:block!important}.visible-xs-inline{display:inline!important}.visible-xs-inline-block{display:inline-block!important}}@media (min-width: 768px) and (max-width: 991px){.visible-sm{display:block!important}table.visible-sm{display:table}tr.visible-sm{display:table-row!important}th.visible-sm,td.visible-sm{display:table-cell!important}.visible-sm-block{display:block!important}.visible-sm-inline{display:inline!important}.visible-sm-inline-block{display:inline-block!important}}@media (min-width: 992px) and (max-width: 1199px){.visible-md{display:block!important}table.visible-md{display:table}tr.visible-md{display:table-row!important}th.visible-md,td.visible-md{display:table-cell!important}.visible-md-block{display:block!important}.visible-md-inline{display:inline!important}.visible-md-inline-block{display:inline-block!important}}@media (min-width: 1200px){.visible-lg{display:block!important}table.visible-lg{display:table}tr.visible-lg{display:table-row!important}th.visible-lg,td.visible-lg{display:table-cell!important}}@media (min-width: 1200px){.visible-lg-block{display:block!important}}@media (min-width: 1200px){.visible-lg-inline{display:inline!important}}@media (min-width: 1200px){.visible-lg-inline-block{display:inline-block!important}}@media (max-width: 767px){.hidden-xs{display:none!important}}@media (min-width: 768px) and (max-width: 991px){.hidden-sm{display:none!important}}@media (min-width: 992px) and (max-width: 1199px){.hidden-md{display:none!important}}@media (min-width: 1200px){.hidden-lg{display:none!important}}.visible-print{display:none!important}@media print{.visible-print{display:block!important}table.visible-print{display:table}tr.visible-print{display:table-row!important}th.visible-print,td.visible-print{display:table-cell!important}}.visible-print-block{display:none!important}@media print{.visible-print-block{display:block!important}}.visible-print-inline{display:none!important}@media print{.visible-print-inline{display:inline!important}}.visible-print-inline-block{display:none!important}@media print{.visible-print-inline-block{display:inline-block!important}}@media print{.hidden-print{display:none!important}}</style>
+
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+	<link rel="stylesheet" href="../libs/uikit/css/uikit.css">
+	<link rel="stylesheet" href="../libs/prism/prism.css">
+
+	<link rel="stylesheet" href="../libs/flextabs-js/dist/jquery.flextabs.min.css">
+	<link rel="stylesheet" href="../libs/flextabs-js/dist/jquery.flextabs.theme-default.min.css">
+
+	<link rel="stylesheet" href="./css/fonts.css">
+	<link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="./css/media.css">
+	<link rel="stylesheet" href="./css/fallbacks.css">
+
+	<style>img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"]{display:none;}</style>
+
+</head>
+<body>
+
+<div class="site">
+		
+<!-- SITE-HEADER: Start -->
+<header class="site-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				
+				<a href="/flextabs-js">
+					<h1>
+						<small>jQuery</small>
+						<span>FlexTabs</span><sup class="ver">2.0.0</sup>
+					</h1>
+				</a>
+
+			</div>
+		</div>
+		<!-- <div class="header-infobar">
+			<a class="info-icon info-github" href="https://github.com/WahaWaher/flextabs-js" target="_blank" title="GitHub"><svg class="svg-icon"><use xlink:href="svg/svg-sprite.svg#svg-github"></use></svg></a>
+		</div> -->
+	</div>
+</header>
+<!-- SITE-HEADER: End -->
+
+<!-- SITE-UNDERHEADER: Start -->
+<div class="site-underheader">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="undr-left">
+
+					<p><strong>jQuery-плагин</strong> для создания адаптивных вкладок<br>
+					(<strong>табы</strong>, <strong>аккордеон</strong>, <strong>спойлер</strong>)</p>
+
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="undr-right">
+					<a href="https://github.com/WahaWaher/flextabs-js/archive/master.zip" target="_blank" class="uk-button uk-button-accent uk-button-medium">Скачать</a>
+					<a href="https://github.com/WahaWaher/flextabs-js" target="_blank" class="uk-button uk-button-accent uk-button-medium">GitHub</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- SITE-UNDERHEADER: End -->
+
+<div class="site-content">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+
+	<!-- FlexTabs Animation Example -->
+	<h2 class="uk-heading-bullet">Демо: Анимация</h2>
+	<p><a href="/flextabs-js/#animation">Код и пояснения к примеру</a></p>
+
+	<p data-uk-margin class="method-controls" style="margin-top:0;">
+		<button data-anim-meth="changeMode:tabs" class="uk-button uk-button-default uk-button-small">Сменить режим на: Tabs</button>
+		<button data-anim-meth="changeMode:accordion" class="uk-button uk-button-default uk-button-small">Сменить режим на: Accordion</button>
+	</p>
+	
+	<div class="example-animation" id="planets" data-ft style="display: none;">
+
+		<nav>
+			<a href="#mercury" class="active">Меркурий</a>
+			<a href="#venus">Венера</a>
+			<a href="#earth">Земля</a>
+			<a href="#mars">Марс</a>
+			<a href="#jupiter">Юпитер</a>
+		</nav>
+		
+		<div>
+			
+			<div id="mercury">
+				<p>Это самая близкая к Солнцу планета, поэтому Солнце на Меркурий светит и греет в 7 раз сильнее, чем на Землю. На дневной стороне Меркурия страшно жарко, там вечное пекло. Измерения показывают, что температура там поднимается до 400 градусов выше нуля. Зато на ночной стороне должен быть всегда сильный мороз, который, вероятно, доходит до 200 градусов ниже нуля. Итак, Меркурий - это царство пустынь. Одна его половина - горячая каменная пустыня, другая половина - ледяная пустыня, быть может покрытая замерзшими газами.</p>
+			</div>
+			
+			<div id="venus">
+				<p>Вторая планета от Солнца, имеет почти круговую орбиту. Она проходит к Земле ближе, чем какая-либо другая планета. Но плотная, облачная атмосфера не позволяет непосредственно видеть ее поверхность. Атмосфера: СО2 (97%), N2 (ок. 3%), H2O (0,05%), примеси CO, SO2, HCl, HF. Благодаря парниковому эффекту, температура поверхности разогревается до сотен градусов. Атмосфера, представляющая собой плотное одеяло из углекислого газа, удерживает тепло, пришедшее от Солнца.</p>
+			</div>
+			
+			<div id="earth">
+				<p>Третья от Солнца планета. Скорость обращения Земли по эллиптической орбите вокруг Солнца равна - 29,765 км/с. Наклон земной оси к плоскости эклиптики 66o33'22''. У Земли есть естественный спутник - Луна. Земля обладает магнитным и электрическим полями. Земля образовалась 4,7 млрд. лет назад из рассеянного в протосолнечной системе газо-пылевого вещества. В составе Земли преобладают: железо (34,6%), кислород (29,5%), кремний (15,2%), магний (12,7%).</p>
+			</div>
+
+			<div id="mars">
+				<p>Четвертая планета от Солнца, похожая на Землю, но меньше по величине и холоднее. На Марсе имеются глубокие каньоны, гигантские вулканы и обширные пустыни. Вокруг Красной планеты, как еще называют Марс, летают две небольшие луны: Фобос и Деймос. Марс - это следующая за Землей планета, если считать от Солнца, и единственный, кроме Луны космический мир, который уже можно достичь при помощи современных ракет. Для астронавтов это путешествие длиной в 4 года могло бы явиться следующим рубежом в исследовании космического пространства. Вблизи экватора Марса, в районе называемом Тарсис, расположены вулканы колоссальных размеров. Тарсис - название, которое астрономы дали возвышенности, имеющей 400 км. в ширину и около 10 км. в высоту.</p>
+			</div>
+
+			<div id="jupiter">
+				<p>Пятая планета от Солнца, самая большая планета Солнечной системы. Юпитер - не твердая планета. В отличие от четырех твердых планет, ближе других расположенных к Солнцу, Юпитер представляет собой газовый шар.Состав атмосферы: H2(85%), CH4, NH3, He(14%). Газовый состав Юпитера очень похож на солнечный. Юпитер - мощный источник теплового радиоизлучения. Юпитер имеет 16 спутников (Адрастея, Метида, Амальтея, Фива, Ио, Лиситея, Элара, Ананке, Карме, Пасифе, Cинопе, Европа, Ганимед, Каллисто, Леда, Гималия), а также кольцо шириной 20000 км., почти вплотную примыкающие к планете.</p>
+			</div>
+
+		</div>
+		
+	</div>
+
+	<script>
+	window.addEventListener('load', function() {
+
+		function animateCSS(elements, animationName, duration, delay, callback) {
+
+			var duration = duration >= 0 ? duration/1000 : '',
+				 delay = delay >= 0 ? delay/1000 : '';
+
+			elements.addClass('animated ' + animationName)
+					 .css({
+					 	'animation-duration': duration + 's',
+					 	'animation-delay': delay + 's',
+					 });
+
+			function handleAnimationEnd() {
+				elements.removeClass('animated ' + animationName)
+				.css({
+				 	'animation-duration': '',
+				 	'animation-delay': '',
+				});
+				elements.off('animationend', handleAnimationEnd);
+				if (typeof callback === 'function') callback();
+			}
+
+			elements.on('animationend', handleAnimationEnd);
+
+		}
+
+		function animateCSSRemove(elements, animationName) {
+			elements.removeClass('animated ' + animationName);
+		}
+
+		var planets = $('.example-animation');
+
+		// АНИМАЦИЯ ОТКРЫТИЯ ВКЛАДОК
+		planets.on('afterOpen.ft', function(e, instance, targetTab) {
+
+			// Перекл. в состояние польз. анимации
+			instance.animation = 'custom';
+			
+			// Для режима "Accordion"
+			if( instance.mode === 'accordion' ) {
+
+				// Анимация контента вкладки
+				targetTab.content.slideDown({
+					duration: 600,
+
+					// Функция плавности
+					// Требует подключения доп. библиотеки:
+					// https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js
+					// Подробнее: https://easings.net/
+					easing: 'easeOutBack',
+					start: function() {
+
+						// Анимация элементов внутри контейнера
+						// Требует подключения доп. библиотеки:
+						// https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css
+						// Подробнее: https://daneden.github.io/animate.css/
+						animateCSS(targetTab.content.find('p'), 'fadeInDown', 500, 75);
+					}
+				});
+			
+			// Для режима "Tabs"
+			} else {
+
+				// Анимация контента вкладки 
+				targetTab.content.fadeIn(750);
+
+			}
+			
+
+		});
+
+		// АНИМАЦИЯ ЗАКРЫТИЯ ВКЛАДОК
+		planets.on('afterClose.ft', function(e, instance, targetTab) {
+
+			// Перекл. в состояние польз. анимации
+			instance.animation = 'custom';
+
+			// Для режима "Accordion"
+			if( instance.mode === 'accordion' ) {
+
+				// Анимация контента вкладки
+				targetTab.content.slideUp({
+					duration: 350,
+
+					// Функция плавности
+					// Требует подключения доп. библиотеки:
+					// https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js
+					// Подробнее: https://easings.net/
+					easing: 'easeInOutSine',
+					start: function() {
+
+						// Анимация элементов внутри контейнера
+						// Требует подключения доп. библиотеки:
+						// https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css
+						// Подробнее: https://daneden.github.io/animate.css/
+						animateCSS(targetTab.content.find('p'), 'fadeOutDown', 850, 0);
+					},
+					complete: function() {
+						// Удаляет анимационные классы, сразу после завершения анимации контейнера
+						// ( для устранения нежелательного поведения при быстром открытии/закрытии вкладок )
+						animateCSSRemove(targetTab.content.find('p'), 'fadeOutDown');
+					}
+				});
+
+			// Для режима "Tabs"
+			} else {
+
+				// Анимация контента вкладки
+				targetTab.content.hide();
+
+			}
+
+		});
+
+		// АНИМАЦИЯ ПЕРЕКЛЮЧЕНИЯ РЕЖИМА
+		planets.on('beforeChangeMode.ft', function(e, instance) {
+			$(instance.it).hide();
+		}).on('afterChangeMode.ft', function(e, instance) {
+			$(instance.it).fadeIn(450);
+		});
+
+
+		// Инициализация
+		planets.flexTabs();
+
+
+		// Смена режимов
+		$('[data-anim-meth]').on('click', function() {
+			var string = $(this).attr('data-anim-meth').split(':'),
+				 meth = string[0],
+				 arg =  string[1];
+			planets.flexTabs(meth, arg);
+		});
+
+
+		});
+	</script>
+
+</div>
+</div>
+</div>
+</div>
+
+<br>
+<br>
+<br>
+
+<!-- FOOTER: Start -->
+<footer class="site-footer">
+	<div class="container">
+		
+		<p class="center"><small>jQuery</small> FlexTabs &mdash; 2018-2019</p>
+
+	</div>
+</footer>
+<!-- FOOTER: End -->
+
+</div>
+
+	<script src="../libs/jquery/dist/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	<script src="../libs/uikit/js/uikit.js"></script>
+
+	<script src="../libs/flextabs-js/dist/jquery.flextabs.min.js"></script>
+
+	<!-- <script src="./js/common.js"></script> -->
+
+	<!-- Yandex.Metrika counter -->
+	<script> (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(51956135, "init", { id:51956135, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/51956135" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
+
+</body>
+</html>
