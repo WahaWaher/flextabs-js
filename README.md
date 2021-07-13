@@ -10,7 +10,7 @@ _**jQuery-плагин**, для создания адаптивных вкла�
 * Пользовательская анимация при открытии/закрытии вкладок и смене режима
 <br>
 
-[Демо: Стандартный вариант](http://wahawaher.000webhostapp.com/flextabs-js/demo-default.html) | [Демо: Анимация](http://wahawaher.000webhostapp.com/flextabs-js/demo-animation.html) | [Документация](http://wahawaher.000webhostapp.com/flextabs-js)
+[Демо: Стандартный вариант](https://wahawaher.github.io/flextabs-js/demo-default.html) | [Демо: Анимация](https://wahawaher.github.io/flextabs-js/demo-animation.html) | [Документация](https://wahawaher.github.io/flextabs-js/)
 
 ## CDN:
 [https://www.jsdelivr.com/package/npm/flextabs-js?path=dist](https://www.jsdelivr.com/package/npm/flextabs-js?path=dist)
@@ -61,7 +61,7 @@ $('[data-ft]').flexTabs({
   </div>
 </div>
 ```
-Другие варианты разметки см. [Документацию](http://wahawaher.ru/flextabs-js)
+Другие варианты разметки см. [Документацию](https://wahawaher.github.io/flextabs-js)
 
 ## Зависимости:
 - [jQuery](http://jquery.com/download/) (тестировался на версии 3.3.1)
